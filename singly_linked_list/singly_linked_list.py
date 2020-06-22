@@ -71,13 +71,13 @@ class LinkedList:
         if self.head is None:
             return None
         current_node = self.head.next_node
-        maximum = self.head.value
+        max = self.head.value
 
         while current_node is not None:
             #if the current node's value is greater than the value set the current node as the max
-            if current_node.value > maximum:
-                maximum = current_node.value
+            if current_node.value > max:
+                max = current_node.value
             # otherwise go to the next node
             current_node = current_node.next_node
-        return maximum
+        return max
 
