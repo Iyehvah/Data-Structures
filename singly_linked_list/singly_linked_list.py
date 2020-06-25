@@ -1,5 +1,3 @@
-
-
 class Node:
     def __init__(self, value=None, next_node=None):
         self.value = value
@@ -9,7 +7,17 @@ class LinkedList:
     def __init__(self):
         self.head = None # Stores a node, that will correspond to our first node in the list
         self.tail = None # Stores a node at the end of our list
-    
+
+    # return all values in the list a => b => c => d => NONE
+    def __str__(self):
+        output = ''
+        current_node = self.head #1.) create a tracker node var
+        while current_node is not None: #2.) loop until its NONE
+            output += f'{current_node.value} -> ' # 
+            current_node = current_node.next_node #3.) update the tracker code to the next node!
+            
+        return output 
+
     def add_to_head(self, value):
         # create a node to add
         new_node = Node(value)
@@ -81,3 +89,11 @@ class LinkedList:
             current_node = current_node.next_node
         return max
 
+
+
+# linked_list = LinkedList()
+# linked_list.add_to_head(0)
+# linked_list.add_to_tail(1)
+# linked_list.add_to_tail(2)
+# linked_list.add_to_tail(3)
+# print(linked_list)
