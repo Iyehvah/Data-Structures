@@ -9,17 +9,60 @@ return elements in Last In First Out order.
    Make sure the Stack tests pass.
 3. What is the difference between using an array vs. a linked list when 
    implementing a Stack?
+   the run time difference.. when you add to an array it takes time to move ALL the values over to fit new value. 
+   in linked list all you have to do is update the head and tail.
+   it will be O(n) when adding to tail/head
 """
+#this is with DOUBLY LINKED LIST
+# import sys
+# sys.path.append('../doubly_linked_list')
+# from doubly_linked_list import DoublyLinkedList
+
+
+# class Stack:
+#     def __init__(self):
+#         self.size = 0
+#         # self.storage = []
+#         self.storage = DoublyLinkedList(None)
+
+#     def __len__(self):
+#         return self.size
+
+#     def push(self, value):
+#         # self.storage.append(value)
+#         self.size += 1
+#         return self.storage.add_to_head(value)
+
+#     def pop(self):
+#         # if len(self.storage) == 0:
+#         #     return None
+#         # else:
+#         #     return self.storage.pop()
+#         if self.size > 0:
+#             self.size -= 1
+#             return self.storage.remove_from_head()
+
+import sys 
+sys.path.append('../singly_linked_list')
+from singly_linked_list import LinkedList
+
 class Stack:
     def __init__(self):
         self.size = 0
-        # self.storage = ?
+        self.storage = LinkedList()
 
     def __len__(self):
-        pass
+        return self.size
 
     def push(self, value):
-        pass
+        self.size += 1
+        self.storage.add_to_head(value)
 
     def pop(self):
-        pass
+        if self.size == 0:
+            return None
+        self.size -= 1
+        node = self.storage.remove_head()
+        return node
+
+        
